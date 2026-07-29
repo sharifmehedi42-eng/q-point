@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q-point | Global Fashion & Footwear</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', sans-serif;}
+  body{background:#fff;color:#111;}
+  header{position:sticky;top:0;background:#000;color:#fff;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;}
+  header h1{font-size:26px;letter-spacing:3px;}
+  nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:500;}
+  .cart-icon{cursor:pointer;position:relative;}
+  .cart-count{background:red;color:#fff;border-radius:50%;padding:2px 6px;font-size:12px;position:absolute;top:-8px;right:-10px;}
+  .hero{background:url('https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071') center/cover; height:85vh; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center;}
+  .hero h2{font-size:52px;background:rgba(0,0,0,0.6);padding:25px 50px;border-radius:12px;}
+  .section{padding:60px 5%;}
+  .section h2{text-align:center;font-size:32px;margin-bottom:40px;}
+  .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+  .card{border:1px solid #eee;border-radius:12px;overflow:hidden;text-align:center;transition:0.3s;background:#fff;}
+  .card:hover{transform:translateY(-8px);box-shadow:0 12px 25px rgba(0,0,0,0.1);}
+  .card img{width:100%;height:280px;object-fit:cover;}
+  .card h3{padding:10px;font-size:18px;}
+  .price{color:#e63946;font-weight:bold;font-size:18px;}
+  .btn{background:#000;color:#fff;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;margin:10px;}
+  .btn:hover{background:#333;}
+  .brand{background:#f8f8f8;text-align:center;}
+  .cart-modal{display:none;position:fixed;top:0;right:0;width:350px;height:100%;background:#fff;box-shadow:-5px 0 15px rgba(0,0,0,0.2);padding:20px;overflow-y:auto;z-index:2000;}
+  .cart-item{display:flex;justify-content:space-between;margin:15px 0;border-bottom:1px solid #eee;padding-bottom:10px;}
+  footer{background:#000;color:#fff;text-align:center;padding:25px;}
+  @media(max-width:768px){nav{display:none;}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Q-POINT</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#products">Shop</a>
+    <a href="#brand">About</a>
+    <a href="#">Login</a>
+  </nav>
+  <div class="cart-icon" onclick="toggleCart()">🛒<span class="cart-count" id="cartCount">0</span></div>
+</header>
+
+<section class="hero">
+  <h2>Q-POINT<br>Style for the World</h2>
+</section>
+
+<section class="section" id="products">
+  <h2>Featured Products</h2>
+  <div class="products" id="productList"></div>
+</section>
+
+<section class="section brand" id="brand">
+  <h2>A Global Brand</h2>
+  <p>From Dhaka to the World. Q-point delivers premium clothing and footwear with quality, comfort, and trend. <br> Join millions who choose Q-point for their style.</p>
+</section>
+
+<div class="cart-modal" id="cartModal">
+  <h3>Your Cart</h3>
+  <div id="cartItems"></div>
+  <h4>Total: $<span id="total">0</span></h4>
+  <button class="btn" onclick="checkout()">Checkout</button>
+  <button class="btn" style="background:#777;" onclick="toggleCart()">Close</button>
+</div>
+
+<footer>
+  <p>© 2026 Q-point. All Rights Reserved. | Contact: support@qpoint.com</p>
+</footer>
+
+<script>
+const products = [
+  {id:1, name:"Men's Premium Jacket", price:59, img:"https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?q=80&w=800"},
+  {id:2, name:"Women's Summer Dress", price:45, img:"https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800"},
+  {id:3, name:"Running Sneakers", price:79, img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800"},
+  {id:4, name:"Leather Boots", price:99, img:"https://images.unsplash.com/pho…
